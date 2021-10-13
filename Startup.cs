@@ -34,9 +34,7 @@ namespace Week6ind
                 options.UseSqlite(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddControllers()
-            .AddNewtonsoftJson(options =>
-                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
 
             services.AddCors(o => o.AddPolicy("APIPolicy", builder => {
                 builder.AllowAnyOrigin()
