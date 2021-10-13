@@ -1,16 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
+
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Week6ind.Data;
@@ -34,6 +29,7 @@ namespace Week6ind
                 options.UseSqlite(
                     Configuration.GetConnectionString("DefaultConnection")));
 
+     services.AddControllers();
 
 
             services.AddCors(o => o.AddPolicy("APIPolicy", builder => {
@@ -41,6 +37,8 @@ namespace Week6ind
                     .AllowAnyMethod()
                     .AllowAnyHeader();
             }));
+
+       
 
             services.AddSwaggerGen(c =>
             {

@@ -24,11 +24,11 @@ namespace Week6ind.Controllers
 
         // GET: api/City
         [HttpGet]
-        [Route("/")]
+  
         public async Task<ActionResult<IEnumerable<City>>> GetCities()
         {
             return await _context.Cities
-            .Include(i => i.Province)
+           /*  .Include(i => i.Province) */
             .ToListAsync();
         }
 
@@ -37,7 +37,7 @@ namespace Week6ind.Controllers
         public async Task<ActionResult<City>> GetCity(int id)
         {
             var city = await _context.Cities
-            .Include(i => i.Province)
+           /*  .Include(i => i.Province) */
             .FirstOrDefaultAsync(i => i.CityId == id);
 
             if (city == null)
