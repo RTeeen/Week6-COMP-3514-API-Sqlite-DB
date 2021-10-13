@@ -24,6 +24,7 @@ namespace Week6ind.Controllers
 
         // GET: api/City
         [HttpGet]
+        [Route("/")]
         public async Task<ActionResult<IEnumerable<City>>> GetCities()
         {
             return await _context.Cities
