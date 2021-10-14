@@ -26,7 +26,7 @@ namespace Week6ind.Controllers
         public async Task<ActionResult<IEnumerable<Province>>> GetProvinces()
         {
             return await _context.Provinces
-            /* .Include(i => i.Cities) */
+            .Include(i => i.Cities)
             .ToListAsync();
         }
 
@@ -34,7 +34,7 @@ namespace Week6ind.Controllers
 
         public async Task<ActionResult<IEnumerable<Province>>> GetCities(string id) { 
             var province = await _context.Provinces
-           /*  .Include(i => i.Cities) */
+            .Include(i => i.Cities)
             .FirstOrDefaultAsync(i => i.ProvinceCode == id);
 
             if (province == null)
@@ -48,7 +48,7 @@ namespace Week6ind.Controllers
         public async Task<ActionResult<Province>> GetProvince(string id)
         {
             var province = await _context.Provinces
-          /*   .Include(i => i.Cities) */
+            .Include(i => i.Cities)
             .FirstOrDefaultAsync(i => i.ProvinceCode == id);
 
             if (province == null)
